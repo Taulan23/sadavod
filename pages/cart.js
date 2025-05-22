@@ -143,7 +143,7 @@ const Div = styled.div`
 `;
 
 const Cart = () => {
-  const [clothes, setClothes] = useState([]);
+  const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
@@ -160,13 +160,13 @@ const Cart = () => {
       };
     });
 
-    setClothes(() => {
+    setItems(() => {
       setIsLoading(false);
       return items;
     });
   }, [cartItems]);
 
-  const priceValue = clothes.reduce((prev, cur) => prev + +cur.amount, 0);
+  const priceValue = items.reduce((prev, cur) => prev + +cur.amount, 0);
   const discountValue = Math.floor(priceValue / 5);
   const totalValue = priceValue - discountValue;
 
@@ -195,14 +195,14 @@ const Cart = () => {
       ) : (
         !isLoading &&
         (user ? (
-          clothes.length > 0 ? (
+          items.length > 0 ? (
             <Div>
               <div className="cart">
                 <div className="title">
-                  Предметы <span>({clothes.length} в Корзине)</span>
+                  Предметы <span>({items.length} в Корзине)</span>
                 </div>
-                <div className="clothes">
-                  {clothes.map((item) => (
+                <div className="items">
+                  {items.map((item) => (
                     <CartItemCard key={uniqid()} {...item} />
                   ))}
                 </div>

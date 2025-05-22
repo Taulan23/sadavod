@@ -59,7 +59,7 @@ const Div = styled.div`
       }
     }
 
-    .clothes {
+    .items {
       margin: 16px 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -69,7 +69,7 @@ const Div = styled.div`
 
   @media (max-width: 1024px) {
     .main {
-      .clothes {
+      .items {
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -77,7 +77,7 @@ const Div = styled.div`
 
   @media (max-width: 768px) {
     .main {
-      .clothes {
+      .items {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -93,37 +93,37 @@ const Div = styled.div`
         }
       }
 
-      .clothes {
+      .items {
         margin-bottom: 0;
       }
     }
   }
 `;
 
-const Products = ({ clothes, brands, categories }) => {
+const Products = ({ items, brands, categories }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const filteredBrands = useSelector((state) => state.filter.brands);
   const filteredCategories = useSelector((state) => state.filter.categories);
   const filteredSort = useSelector((state) => state.filter.sort);
 
-  let filteredClothes;
+  let filteredItems;
 
-  filteredClothes =
+  filteredItems =
     filteredBrands.length > 0
-      ? [...clothes].filter((value) => filteredBrands.includes(value.brand))
-      : [...clothes];
+      ? [...items].filter((value) => filteredBrands.includes(value.brand))
+      : [...items];
 
-  filteredClothes =
+  filteredItems =
     filteredCategories.length > 0
-      ? filteredClothes.filter((value) =>
+      ? filteredItems.filter((value) =>
           filteredCategories.includes(value.category)
         )
-      : filteredClothes;
+      : filteredItems;
 
   if (filteredSort === "price_high_to_low") {
-    filteredClothes = filteredClothes.sort((a, b) => +b.amount - +a.amount);
+    filteredItems = filteredItems.sort((a, b) => +b.amount - +a.amount);
   } else if (filteredSort === "price_low_to_high") {
-    filteredClothes = filteredClothes.sort((a, b) => +a.amount - +b.amount);
+    filteredItems = filteredItems.sort((a, b) => +a.amount - +b.amount);
   }
 
   useEffect(() => {
@@ -134,7 +134,7 @@ const Products = ({ clothes, brands, categories }) => {
       window.removeEventListener("resize", handleWindowResize);
     };
   }, []);
-  console.log(filteredClothes);
+  console.log(filteredItems);
 
   return (
     <>
@@ -164,9 +164,9 @@ const Products = ({ clothes, brands, categories }) => {
               </div>
             )}
           </div>
-          {filteredClothes.length > 0 ? (
-            <div className="clothes">
-              {filteredClothes.map((item, index) => (
+          {filteredItems.length > 0 ? (
+            <div className="items">
+              {filteredItems.map((item, index) => (
                 <ItemCard key={item.id} {...item} setPriority={index < 8} />
               ))}
             </div>
@@ -200,7 +200,7 @@ export const getStaticProps = (context) => {
 
   return {
     props: {
-      clothes: items,
+      items: items,
       brands,
       categories,
     },

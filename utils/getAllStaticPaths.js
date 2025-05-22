@@ -1,7 +1,7 @@
-import data from '../pages/api/data.json';
+import data from "../pages/api/data.json";
 
 const getAllStaticPaths = () => {
-  return data.clothes.map((item) => ({
+  return data.items.map((item) => ({
     params: { cid: item.id },
   }));
 };

@@ -70,7 +70,7 @@ const Div = styled.div`
     }
   }
 
-  .clothes {
+  .items {
     margin: 16px 0;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -122,7 +122,7 @@ const Notification = styled.div`
 `;
 
 const Wishlist = () => {
-  const [clothes, setClothes] = useState([]);
+  const [items, setItems] = useState([]);
   const [activateNotification, setActivateNotification] = useState(false);
   const [imageToBeNotified, setImageToBeNotified] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -135,7 +135,7 @@ const Wishlist = () => {
       return { size: item.itemSize, ...itemDetails };
     });
 
-    setClothes(() => {
+    setItems(() => {
       setIsLoading(false);
       return items;
     });
@@ -160,13 +160,13 @@ const Wishlist = () => {
       </MainNav>
       {!isLoading &&
         (user ? (
-          clothes.length > 0 ? (
+          items.length > 0 ? (
             <Div>
               <div className="title">
-                Wishlist <span>({clothes.length} items)</span>
+                Wishlist <span>({items.length} items)</span>
               </div>
-              <div className="clothes">
-                {clothes.map((item) => (
+              <div className="items">
+                {items.map((item) => (
                   <WishlistItemCard
                     key={item.id}
                     {...item}

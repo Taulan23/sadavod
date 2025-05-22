@@ -1,13 +1,10 @@
-import data from '../pages/api/data.json';
+import data from "../pages/api/data.json";
 
-// Shuffle the items
 const shuffle = (array) => {
   let currentIndex = array.length,
     randomIndex;
 
-  // While there remain elements to shuffle...
   while (currentIndex != 0) {
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
@@ -22,7 +19,7 @@ const shuffle = (array) => {
 };
 
 const getItems = () => {
-  return shuffle(data.clothes);
+  return shuffle(data.items);
 };
 
 export default getItems;

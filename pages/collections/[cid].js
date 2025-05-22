@@ -10,7 +10,7 @@ import Modal from "../../components/Modal";
 import SizeChartForTops from "../../components/SizeChartForTops";
 import SizeChartForBottoms from "../../components/SizeChartForBottoms";
 import { getFormattedCurrency } from "../../utils/getFormattedCurrency";
-import { cartActions } from "../../store/cartSlice"; // Путь зависит от структуры проекта
+import { cartActions } from "../../store/cartSlice";
 
 const MainNav = styled.div`
   font-size: 14px;
