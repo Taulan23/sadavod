@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import Image from 'next/image';
-import styled from 'styled-components';
-import { doc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
+import { useState } from "react";
+import Image from "next/image";
+import styled from "styled-components";
+import { doc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 
-import { CloseIcon } from '../assets/icons';
-import BetterLink from './BetterLink';
-import { useSelector } from 'react-redux';
-import { db } from '../services/firebase-config';
-import Modal from './Modal';
-import SizePickerForBottoms from './SizePickerForBottoms';
-import SizePickerForTops from './SizePickerForTops';
-import { getFormattedCurrency } from '../utils/getFormattedCurrency';
+import { CloseIcon } from "../assets/icons";
+import BetterLink from "./BetterLink";
+import { useSelector } from "react-redux";
+import { db } from "../services/firebase-config";
+import Modal from "./Modal";
+import SizePickerForBottoms from "./SizePickerForBottoms";
+import SizePickerForTops from "./SizePickerForTops";
+import { getFormattedCurrency } from "../utils/getFormattedCurrency";
 
 const Div = styled.div`
   font-size: 14px;
@@ -162,7 +162,7 @@ const WishlistItemCard = ({
   category,
   setImage,
 }) => {
-  const [pickedSize, setPickedSize] = useState('');
+  const [pickedSize, setPickedSize] = useState("");
   const [showSizePicker, setShowSizePicker] = useState(false);
   const [promptSize, setPromptSize] = useState(false);
   const user = useSelector((state) => state.auth.user);
@@ -180,19 +180,19 @@ const WishlistItemCard = ({
   };
 
   const closeSizePickerHandler = () => {
-    setPickedSize('');
+    setPickedSize("");
     setShowSizePicker(false);
     setPromptSize(false);
   };
 
   const deleteItemHandler = () => {
-    updateDoc(doc(db, user.uid, 'wishlist'), {
+    updateDoc(doc(db, user.uid, "wishlist"), {
       items: arrayRemove({ itemId: id, itemSize: size }),
     }).catch((error) => console.log(error));
   };
 
   const removeItemHandler = () => {
-    updateDoc(doc(db, user.uid, 'wishlist'), {
+    updateDoc(doc(db, user.uid, "wishlist"), {
       items: arrayRemove({ itemId: id, itemSize: size }),
     })
       .then(() => {
@@ -210,7 +210,7 @@ const WishlistItemCard = ({
         };
         const updatedItems = [...cartItems];
         updatedItems.splice(cartItemIndex, 1, updatedItem);
-        updateDoc(doc(db, user.uid, 'cart'), {
+        updateDoc(doc(db, user.uid, "cart"), {
           items: updatedItems,
         })
           .then(() => {
@@ -218,11 +218,11 @@ const WishlistItemCard = ({
           })
           .catch((error) => console.log(error));
       } else {
-        updateDoc(doc(db, user.uid, 'cart'), {
+        updateDoc(doc(db, user.uid, "cart"), {
           items: arrayUnion({
             itemId: id,
             itemSize: size,
-            itemQuantity: '1',
+            itemQuantity: "1",
           }),
         })
           .then(() => {
@@ -246,7 +246,7 @@ const WishlistItemCard = ({
         };
         const updatedItems = [...cartItems];
         updatedItems.splice(cartItemIndex, 1, updatedItem);
-        updateDoc(doc(db, user.uid, 'cart'), {
+        updateDoc(doc(db, user.uid, "cart"), {
           items: updatedItems,
         })
           .then(() => {
@@ -254,11 +254,11 @@ const WishlistItemCard = ({
           })
           .catch((error) => console.log(error));
       } else {
-        updateDoc(doc(db, user.uid, 'cart'), {
+        updateDoc(doc(db, user.uid, "cart"), {
           items: arrayUnion({
             itemId: id,
             itemSize: pickedSize,
-            itemQuantity: '1',
+            itemQuantity: "1",
           }),
         })
           .then(() => {
@@ -293,7 +293,7 @@ const WishlistItemCard = ({
           <div className="info">
             <div className="brand">{brand}</div>
             <div className="name">{name}</div>
-            <div className="amount">{`Rs. ${getFormattedCurrency(
+            <div className="amount">{`Руб. ${getFormattedCurrency(
               amount
             )}`}</div>
           </div>
@@ -308,7 +308,7 @@ const WishlistItemCard = ({
             <div className="title">Select size</div>
             {promptSize && <div className="error">Please select a size</div>}
             <div className="sizes">
-              {category === 'Jeans' ? (
+              {category === "Jeans" ? (
                 <SizePickerForBottoms
                   currentSize={pickedSize}
                   onSetSize={setPickedSize}

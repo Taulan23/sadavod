@@ -30,7 +30,6 @@ const Div = styled.div`
     }
   }
 `;
-// ЗДЕСЬ
 const ItemCard = ({ id, imageURL, brand, name, amount, setPriority }) => {
   return (
     <Div>
@@ -45,7 +44,9 @@ const ItemCard = ({ id, imageURL, brand, name, amount, setPriority }) => {
         <div className="info">
           <div className="brand">{brand}</div>
           <div className="name">{name}</div>
-          <div className="amount">{`Rs. ${getFormattedCurrency(amount)}`}</div>
+          <div className="amount">{`Рублей. ${getFormattedCurrency(
+            amount
+          )}`}</div>
         </div>
       </BetterLink>
     </Div>

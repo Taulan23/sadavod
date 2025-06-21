@@ -225,7 +225,7 @@ const ItemDetails = ({ id, imageURL, brand, category, name, amount }) => {
           <div className="info">
             <div className="brand">{brand}</div>
             <div className="name">{name}</div>
-            <div className="amount">{`Rs. ${getFormattedCurrency(
+            <div className="amount">{`Руб ${getFormattedCurrency(
               amount
             )}`}</div>
             <div className="actions">

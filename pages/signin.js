@@ -279,11 +279,13 @@ const SignIn = () => {
           console.log(errorCode);
 
           if (errorCode === "auth/user-not-found") {
-            setServerErrorMessage("Account doesn't exist.");
+            setServerErrorMessage("Aккаунта не найдено.");
           } else if (errorCode === "auth/wrong-password") {
-            setServerErrorMessage("Invalid password.");
+            setServerErrorMessage("Пароль не валидный.");
           } else {
-            setServerErrorMessage("Something went wrong.");
+            setServerErrorMessage(
+              "Такого аккаунта не найдено, Пожалуйста зарегистрируйтесь"
+            );
           }
         })
         .finally(() => {
@@ -301,11 +303,11 @@ const SignIn = () => {
         console.log(errorCode);
 
         if (errorCode === "auth/user-not-found") {
-          setServerErrorMessage("Account doesn't exist.");
+          setServerErrorMessage("Аккаунт не найден.");
         } else if (errorCode === "auth/wrong-password") {
-          setServerErrorMessage("Invalid password.");
+          setServerErrorMessage("Не валидный пароль.");
         } else {
-          setServerErrorMessage("Something went wrong.");
+          setServerErrorMessage("Что то случилось.");
         }
       })
       .finally(() => {

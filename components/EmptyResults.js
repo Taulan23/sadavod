@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { FilterIcon } from '../assets/icons';
+import { FilterIcon } from "../assets/icons";
 
 const Div = styled.div`
   flex: 1;
@@ -40,7 +40,7 @@ const EmptyResults = () => {
       <div className="round">
         <FilterIcon />
       </div>
-      <p className="text">No results found</p>
+      <p className="text">Ничего не найдено, попробуйте, изменить фильтры</p>
     </Div>
   );
 };

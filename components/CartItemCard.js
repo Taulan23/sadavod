@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { doc, updateDoc, arrayRemove } from "firebase/firestore";
 
@@ -10,6 +10,7 @@ import { db } from "../services/firebase-config";
 import Modal from "./Modal";
 import QuantityPicker from "./QuantityPicker";
 import { getFormattedCurrency } from "../utils/getFormattedCurrency";
+import { cartActions } from "../store/cartSlice";
 
 const Div = styled.div`
   font-size: 14px;
@@ -195,49 +196,8 @@ const CartItemCard = ({
   amount,
   quantity,
 }) => {
-  const [showQuantityPicker, setShowQuantityPicker] = useState(false);
-  const [currentQuantity, setCurrentQuantity] = useState(quantity);
-  const user = useSelector((state) => state.auth.user);
-  const cartItems = useSelector((state) => state.cart.items);
-  const removeItemHandler = () => {
-    updateDoc(doc(db, user.uid, "cart"), {
-      items: arrayRemove({
-        itemId: id,
-        itemSize: size,
-        itemQuantity: currentQuantity,
-      }),
-    })
-      .then(() => {})
-      .catch((error) => console.log(error));
-  };
-
-  const openQuantityPickerHandler = () => {
-    setShowQuantityPicker(true);
-  };
-
-  const closeQuantityPickerHandler = () => {
-    setShowQuantityPicker(false);
-  };
-
-  const setQuantityHandler = (selectedQuantity) => {
-    setCurrentQuantity(selectedQuantity);
-    const item = cartItems.find(
-      (item) => item.itemId === id && item.itemSize === size
-    );
-    const updatedItem = {
-      ...item,
-      itemQuantity: selectedQuantity,
-    };
-    const updatedItems = [...cartItems];
-    updatedItems.splice(index, 1, updatedItem);
-    updateDoc(doc(db, user.uid, "cart"), {
-      items: updatedItems,
-    })
-      .then(() => {})
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const dispatch = useDispatch();
+  console.log(amount, "123612");
 
   return (
     <>
@@ -261,6 +221,14 @@ const CartItemCard = ({
             </div>
           </div>
         </div>
+        <span
+          style={{ marginLeft: 150 }}
+          onClick={() => {
+            dispatch(cartActions.removeItem({ itemId: id }));
+          }}
+        >
+          Удалить из корзины(тык)
+        </span>
       </Div>
     </>
   );

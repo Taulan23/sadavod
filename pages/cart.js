@@ -173,14 +173,13 @@ const Cart = () => {
   const placeOrderHandler = () => {
     setIsPlacingOrder(true);
 
-    // Симуляция оформления заказа
     setTimeout(() => {
-      // Очистка корзины через Redux
       dispatch(cartActions.setItems([]));
       setIsOrderPlaced(true);
       setIsPlacingOrder(false);
     }, 600);
   };
+  console.log(items, "items");
 
   return (
     <>

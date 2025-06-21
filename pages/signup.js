@@ -261,9 +261,9 @@ const SignUp = () => {
           const errorCode = error.code;
 
           if (errorCode === "auth/email-already-in-use") {
-            setServerErrorMessage("Email address already in use.");
+            setServerErrorMessage("Почту уже занята");
           } else {
-            setServerErrorMessage("Something went wrong.");
+            setServerErrorMessage("Что то случилось.");
           }
         })
         .finally(() => {
@@ -275,7 +275,7 @@ const SignUp = () => {
   return (
     <>
       <Head>
-        <title>Sign Up</title>
+        <title>Зарегестрироваться</title>
       </Head>
       <MainNav>
         <Link href="/">Главная</Link> / <span>Sign Up</span>
@@ -284,8 +284,7 @@ const SignUp = () => {
         {user ? (
           <>
             <p>
-              You are signed in as <span className="bold">{user.email}</span>.
-              You'll now be redirected.
+              Вы вошли как <span className="bold">{user.email}</span>.
             </p>
           </>
         ) : (
@@ -312,7 +311,7 @@ const SignUp = () => {
                     onChange={nameInputHandler}
                     onBlur={() => setStartNameValidation(false)}
                   />
-                  <span className="hint">Name cannot be empty</span>
+                  <span className="hint">Имя не может быть пустым</span>
                 </div>
                 <div
                   className={`form-control ${
@@ -331,9 +330,9 @@ const SignUp = () => {
                   <span className="hint">{`${
                     startEmailValidation
                       ? emailInput.length === 0
-                        ? "Email cannot be empty"
+                        ? "Почта не может быть пустой "
                         : !validateEmail(emailInput)
-                        ? "Email is not valid"
+                        ? "почта указанна не верно"
                         : ""
                       : ""
                   }`}</span>
@@ -359,19 +358,23 @@ const SignUp = () => {
                   <span className="hint">{`${
                     startPasswordValidation
                       ? passwordInput.length === 0
-                        ? "Password cannot be empty"
+                        ? "пароль не может быть пустым"
                         : !validatePassword(passwordInput)
-                        ? "Min 6 characters required"
+                        ? "минимум 6 символов"
                         : ""
                       : ""
                   }`}</span>
                 </div>
                 <button type="submit" disabled={isLoading}>
-                  {isLoading ? <span className="loader"></span> : "Sign Up"}
+                  {isLoading ? (
+                    <span className="loader"></span>
+                  ) : (
+                    "Зарегестрироваться"
+                  )}
                 </button>
               </form>
               <p className="info">
-                Do you have an account? <Link href="/signin">Sign In</Link>
+                Есть аккаунт? <Link href="/signin">Войти</Link>
               </p>
             </div>
           </>

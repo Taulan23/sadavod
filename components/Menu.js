@@ -67,15 +67,11 @@ const Menu = ({ onClose, onSignOut }) => {
     onClose();
   };
 
-  const wishlistHandler = () => {
-    router.push("/wishlist");
-    onClose();
-  };
-
   const cartHandler = () => {
     router.push("/cart");
     onClose();
   };
+  console.log(user);
 
   return (
     <Div>
@@ -98,10 +94,20 @@ const Menu = ({ onClose, onSignOut }) => {
         <div className="item" onClick={collectionsHandler}>
           Коллекция
         </div>
-
         <div className="item" onClick={cartHandler}>
           Корзина
         </div>
+        {user?.email === "admin@mail.ru" && (
+          <div
+            className="item"
+            onClick={() => {
+              router.push("/admin");
+              onClose();
+            }}
+          >
+            Админ-Панель
+          </div>
+        )}
         {user && (
           <div className="item" onClick={onSignOut}>
             Выйти из профиля

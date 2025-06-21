@@ -5,23 +5,15 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel8.jfif",
       "brand": "Зеленый огород",
       "category": "Лопаты",
-      "name": "Красивая лопата",
+      "name": "Лопата мастера",
       "amount": "2590"
-    },
-    {
-      "id": "2402",
-      "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel9.jfif",
-      "brand": "Зеленый огород",
-      "category": "Лопаты",
-      "name": "Крутая лопата",
-      "amount": "2340"
     },
     {
       "id": "2403",
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel9.jfif",
       "brand": "Зеленый огород",
       "category": "Лопаты",
-      "name": "Мега крутая лопата",
+      "name": "Штыковая лопата",
       "amount": "2390"
     },
     {
@@ -29,16 +21,8 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel1.jfif",
       "brand": "Зеленый огород",
       "category": "Лопаты",
-      "name": "Маленькая лопата",
+      "name": "Дачная лопата",
       "amount": "2120"
-    },
-    {
-      "id": "2405",
-      "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel2.jfif",
-      "brand": "Зеленый огород",
-      "category": "Лопаты",
-      "name": "Некрасивая лопата",
-      "amount": "1970"
     },
     {
       "id": "2406",
@@ -101,7 +85,7 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//Axe3.jfif",
       "brand": "Зеленый огород",
       "category": "Топоры",
-      "name": "Красивый топор",
+      "name": "Именной топор",
       "amount": "2600"
     },
     {
@@ -117,7 +101,7 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//Axe.jfif",
       "brand": "Красный сад",
       "category": "Топоры",
-      "name": "Необычный топор",
+      "name": "Садовый топор",
       "amount": "2200"
     },
     {
@@ -125,7 +109,7 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel3.jfif",
       "brand": "Красный сад",
       "category": "Лопаты",
-      "name": "Обычная лопата",
+      "name": "Лопата",
       "amount": "2250"
     },
     {
@@ -141,7 +125,7 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel5.jfif",
       "brand": "Красный сад",
       "category": "Лопаты",
-      "name": "Точно не лопата",
+      "name": "Железная лопата",
       "amount": "2200"
     },
     {
@@ -149,7 +133,7 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel6.jfif",
       "brand": "Красный сад",
       "category": "Лопаты",
-      "name": "Мега супер крутая лопата",
+      "name": "Ручная лопата",
       "amount": "2200"
     },
     {
@@ -157,7 +141,7 @@
       "imageURL": "https://hvugcmtdurhllcumoidq.supabase.co/storage/v1/object/public/products//shovel8.jfif",
       "brand": "Красный сад",
       "category": "Лопаты",
-      "name": "Дешевая лопата",
+      "name": "Садовая лопата",
       "amount": "1450"
     }
     

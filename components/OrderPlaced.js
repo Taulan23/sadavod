@@ -65,8 +65,11 @@ const OrderPlaced = () => {
         <CheckIcon />
       </div>
       <h2 className="title">Заказ оформлен успешно</h2>
-      <p className="text">Спасибо что используйте нас</p>
+      <p className="text">Заберите товар в магазине</p>
       <Link href="/collections">Продолжить покупки</Link>
+      <p className="text">
+        Рижский просп., 8, Санкт-Петербург (офис 10, этаж 2)
+      </p>
     </Div>
   );
 };
