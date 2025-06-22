@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
-import { FilterIcon } from '../assets/icons';
-import BrandFilter from './BrandFilter';
-import CategoryFilter from './CategoryFilter';
-import Modal from './Modal';
+import { FilterIcon } from "../assets/icons";
+import BrandFilter from "./BrandFilter";
+import CategoryFilter from "./CategoryFilter";
+import Modal from "./Modal";
 
 const Button = styled.button`
   color: inherit;
@@ -53,7 +53,7 @@ const SmallFilter = ({ brandItems, categoryItems }) => {
       {showFilter && (
         <Modal closeHandler={closeFilterHandler}>
           <ModalDiv>
-            <div className="title">Filter</div>
+            <div className="title">Фильтры</div>
             <div className="filters">
               <BrandFilter items={brandItems} />
               <CategoryFilter items={categoryItems} />
