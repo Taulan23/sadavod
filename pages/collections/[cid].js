@@ -208,7 +208,7 @@ const ItemDetails = ({ id, imageURL, brand, category, name, amount }) => {
       <MainNav>
         <Link href="/">Главная</Link>
         {" / "}
-        <Link href="/collections">Collections</Link>
+        <Link href="/collections">Каталог</Link>
         {" / "}
         <span>{` ${brand} ${name}`}</span>
       </MainNav>
